@@ -9,7 +9,7 @@ public class ProductRepository {
 	ArrayList<Product> ListOfProducts = new ArrayList();
 
 	public ProductRepository() {
-		Product phone = new Product("P1234", "iPhone 6s", 800000);
+		Product phone = new Product("P1234", "iPhone 6s", 800010);
 		phone.setDescription("4.7-inch , 1334X750 Renina HD display, 8 - megapixel iSight Camera");
 		phone.setCategory("Smart Phone");
 		phone.setManufacturer("Apple");
