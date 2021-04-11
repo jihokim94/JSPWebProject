@@ -12,7 +12,7 @@
 		아이디 :
 		<jsp:getProperty property="id" name="person" />
 	<p>
-		이름 :
+		이름! :
 		<jsp:getProperty property="name" name="person" />
 	<p>
 		나이 :
