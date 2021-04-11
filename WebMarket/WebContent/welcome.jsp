@@ -35,7 +35,7 @@
 	<main role="main">
 		<div class="container">
 			<div class="text-center">
-				<h3><%=tagLine%></h3>
+				<h3><%=tagLine%></h3>  	 
 				<% Date today = new Date();
 					String am_pm;
 					int hour = today.getHours(); 
