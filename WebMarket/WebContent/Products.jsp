@@ -1,9 +1,11 @@
+
 <%@page import="dto.Product"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="dao.ProductRepository"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<jsp:useBean id="productDAO" class="dao.ProductRepository"></jsp:useBean>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet"
@@ -22,26 +24,24 @@
 		</div>
 	</div>
 	<div class="container">
-	<div class="row" align="center">
-	<%
-		ProductRepository pr = new ProductRepository();
+		<div class="row" align="center">
+			<%
+				ArrayList<Product> pdList = productDAO.getAllProducts();
 
-	ArrayList<Product> pdList = pr.getAllProducts();
-
-	for (int i = 0; i < pdList.size(); i++) {
-		Product product = pdList.get(i);
-	%>
-	<div class="col-md-4">
-		<h3><%=product.getpName() %></h3>
-		<h3><%=product.getDescription() %></h3>
-		<h3><%=product.getUnitPrice()%></h3>
+			for (int i = 0; i < pdList.size(); i++) {
+				Product product = pdList.get(i);
+			%>
+			<div class="col-md-4">
+				<h3><%=product.getpName()%></h3>
+				<h3><%=product.getDescription()%></h3>
+				<h3><%=product.getUnitPrice()%></h3>
+			</div>
+			<%
+				}
+			%>
+		</div>
+		<hr>
 	</div>
-	<%
-		}
-	%>
-	</div>
-<hr>
-</div>
 
 	<%@include file="footer.jsp"%>
 </body>
