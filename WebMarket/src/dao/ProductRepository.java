@@ -7,7 +7,8 @@ import dto.Product;
 public class ProductRepository {
 
 	ArrayList<Product> ListOfProducts = new ArrayList();
-
+	private static ProductRepository instance = new ProductRepository();
+	
 	public ProductRepository() {
 		Product phone = new Product("P1234", "iPhone 6s", 800010);
 		phone.setDescription("4.7-inch , 1334X750 Renina HD display, 8 - megapixel iSight Camera");
@@ -50,5 +51,11 @@ public class ProductRepository {
 		
 		return productById;
 		
+	}
+	public static ProductRepository getInstance() {
+		return instance;
+	}
+	public void addProduct(Product pd) {
+		ListOfProducts.add(pd);
 	}
 }

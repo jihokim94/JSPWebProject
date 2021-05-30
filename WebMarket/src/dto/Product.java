@@ -3,17 +3,17 @@ package dto;
 import java.io.Serializable;
 
 public class Product implements Serializable {
-	
+
 	private static final long serialVersionUID = 4274700572038677000L;
 	private String productId; // 상품아이디
-	private String pName;  // 상품명
+	private String pName; // 상품명
 	private int unitPrice; // 상품가격
 	private String description; // 상품 설명
 	private String manufacturer; // 제조사
 	private String category; // 분류
-	private long unitsInStock;  //재고 수
+	private long unitsInStock; // 재고 수
 	private String condition; // 신품 or 중고품 or 재생품
-	
+
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
@@ -23,6 +23,19 @@ public class Product implements Serializable {
 		this.productId = productId;
 		this.pName = pName;
 		this.unitPrice = unitPrice;
+	}
+
+	public Product(String productId, String pName, int unitPrice, String description, String manufacturer,
+			String category, long unitsInStock, String condition) {
+		super();
+		this.productId = productId;
+		this.pName = pName;
+		this.unitPrice = unitPrice;
+		this.description = description;
+		this.manufacturer = manufacturer;
+		this.category = category;
+		this.unitsInStock = unitsInStock;
+		this.condition = condition;
 	}
 
 	public String getProductId() {
@@ -96,8 +109,4 @@ public class Product implements Serializable {
 				+ unitsInStock + ", condition=" + condition + "]";
 	}
 
-
-	
-	
-	
 }

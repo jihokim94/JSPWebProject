@@ -26,7 +26,8 @@
 
 	<%
 		String id = request.getParameter("id");
-		Product pd = productDAO.getProductById(id);
+		ProductRepository dao = ProductRepository.getInstance();
+		Product pd = dao.getProductById(id);
 	%>
 	<div class="container">
 		<div class="row">
@@ -44,10 +45,10 @@
 				<p>
 					<b>분류</b> :
 					<%=pd.getCategory()%>
-				</p>	
+				</p>
 				<p>
 					<b>재고 수</b> :
-					<%=pd.getUnitsInStock() %>
+					<%=pd.getUnitsInStock()%>
 				</p>
 				<h4><%=pd.getUnitPrice()%>원
 				</h4>

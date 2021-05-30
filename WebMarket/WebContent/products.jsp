@@ -5,7 +5,7 @@
 <%@page import="dao.ProductRepository"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:useBean id="productDAO" class="dao.ProductRepository"></jsp:useBean>
+<%-- <jsp:useBean id="productDAO" class="dao.ProductRepository"></jsp:useBean> --%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet"
@@ -26,7 +26,8 @@
 	<div class="container">
 		<div class="row" align="center">
 			<%
-				ArrayList<Product> pdList = productDAO.getAllProducts();
+			ProductRepository dao = ProductRepository.getInstance();
+				ArrayList<Product> pdList = dao.getAllProducts();
 
 			for (int i = 0; i < pdList.size(); i++) {
 				Product product = pdList.get(i);
