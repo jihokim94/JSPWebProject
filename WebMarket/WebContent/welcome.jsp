@@ -37,6 +37,7 @@
 			<div class="text-center">
 				<h3><%=tagLine%></h3>  	 
 				<% Date today = new Date();
+				response.setIntHeader("Refresh", 5);
 					String am_pm;
 					int hour = today.getHours(); 
 					int minute = today.getMinutes();
