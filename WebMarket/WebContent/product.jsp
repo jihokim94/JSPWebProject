@@ -26,11 +26,14 @@
 
 	<%
 		String id = request.getParameter("id");
-		ProductRepository dao = ProductRepository.getInstance();
-		Product pd = dao.getProductById(id);
+	ProductRepository dao = ProductRepository.getInstance();
+	Product pd = dao.getProductById(id);
 	%>
 	<div class="container">
 		<div class="row">
+			<div class="col-md-5">
+				<img src="C:/upload/<%=pd.getFilename()%>" style="width: 100%">
+			</div>
 			<div class="col-md-6">
 				<h3><%=pd.getpName()%></h3>
 				<p><%=pd.getDescription()%></p>
@@ -61,6 +64,7 @@
 				</p>
 
 			</div>
+
 		</div>
 
 

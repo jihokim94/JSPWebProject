@@ -33,7 +33,8 @@
 				Product product = pdList.get(i);
 			%>
 			<div class="col-md-4">
-				<p><%=product.getpName()%></p>
+				<img src="C:/upload/<%=product.getFilename()%>" style="width: 100%" >
+				<h3><%=product.getpName()%></h3>
 				<p><%=product.getDescription()%></p>
 				<p><%=product.getUnitPrice()%></p>
 				
