@@ -7,6 +7,63 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
+<script type="text/javascript" src="resources/js/validation.js">
+
+</script>
+<script>
+function CheckAddProduct(){
+	var productId = document.getElementById("productId");
+	
+	var unitPrice = document.getElementById("unitPrice");
+	var unitsInStock = document.getElementById("unitsInStock");
+
+	var form = document.newProducts;
+	
+	var productValue = form.productId.value;
+	var validtionOfId = /^P[0-9]{4,11}$/;
+	var name = form.name.value;
+	var unitPriceValue = form.unitPrice.value;
+	var unitsInStockValue = form.unitsInStock.value;
+//상품 아이디 체크
+	if (!validtionOfId.test(productValue)){
+		alert("[상품코드]\nP와 숫자를 조합하여 5~12자까지 입력하세요\n첫 글자는 반드시 P로 시작하세요");
+		return false;
+	}
+		
+	//상품명 체크
+	if(name.length <4 || name.length > 12) {
+		alert("[상품명]\n최소 4자에서 최대 12자까지 입력하세요");
+		return false;
+	}
+	//상품 가격 체크
+	if (unitPriceValue.length == 0 || isNaN(unitPriceValue)) {
+		alert("[상품가격]\n숫자만 입력하세요");
+		unitPrice.select();
+		unitPrice.focus();
+		return false;
+	}
+	
+	if (unitPriceValue < 0) {
+		alert("[상품가격]\n음수는 입력할 수 없습니다");
+		unitPrice.select();
+		unitPrice.focus();
+		return false;
+	}
+	
+	//재고 수 체크
+	if (isNaN(unitsInStockValue)) {
+		alert("[재고 수]\n숫자만 입력하세요");
+		unitsInStock.select();	
+		unitsInStock.focus();
+		return false;
+	}
+	
+	
+	document.newProducts.submit();
+}
+
+
+	</script>
 <meta charset="UTF-8">
 <title>상품 등록</title>
 </head>
@@ -79,7 +136,8 @@
 				</div>
 				<div class="form-froup row">
 					<div class="col-sm-offset-2 col-sm-10">
-						<input type="submit" class="btn btn-primary" value="등록">
+						<input type="button" class="btn btn-primary" value="등록"
+							onclick="CheckAddProduct()">
 					</div>
 				</div>
 			</form>
